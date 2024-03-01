@@ -17,21 +17,21 @@ class StokSeeder extends Seeder
         $data = [
             [
                 'stok_id' => 1,
-                'barang_id' => 1290,
+                'barang_id' => 1,
                 'user_id' => 1,
                 'stok_tanggal' => '2003-01-01',
                 'stok_jumlah' => 3
             ],
             [
                 'stok_id' => 2,
-                'barang_id' => 1291,
+                'barang_id' => 2,
                 'user_id' => 2,
                 'stok_tanggal' => '2003-01-02',
                 'stok_jumlah' => 5
             ],
             [
                 'stok_id' => 3,
-                'barang_id' => 1292,
+                'barang_id' => 3,
                 'user_id' => 3,
                 'stok_tanggal' => '2003-01-03',
                 'stok_jumlah' => 7
