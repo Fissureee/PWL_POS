@@ -18,7 +18,7 @@ class BarangSeeder extends Seeder
                 'barang_id' => 1,
                 'kategori_id' => 1,
                 'barang_kode' => 'BRG001',
-                'nama_barang' => 'Laptop Asus',
+                'barang_nama' => 'Laptop Asus',
                 'harga_beli' => 2500000,
                 'harga_jual' => 3500000
             ],
@@ -26,7 +26,7 @@ class BarangSeeder extends Seeder
                 'barang_id' => 2,
                 'kategori_id' => 2,
                 'barang_kode' => 'BRG002',
-                'nama_barang' => 'Smartphone Samsung',
+                'barang_nama' => 'Smartphone Samsung',
                 'harga_beli' => 2000000,
                 'harga_jual' => 3000000
             ],
@@ -34,7 +34,7 @@ class BarangSeeder extends Seeder
                 'barang_id' => 3,
                 'kategori_id' => 3,
                 'barang_kode' => 'BRG003',
-                'nama_barang' => 'Tablet Lenovo',
+                'barang_nama' => 'Tablet Lenovo',
                 'harga_beli' => 1500000,
                 'harga_jual' => 2500000
             ]
