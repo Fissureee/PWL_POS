@@ -37,7 +37,7 @@ class UserController extends Controller
 
         //     $user = UserModel::all();
             $user = UserModel::where('level_id', 2)->count();
-            dd($user);
+            //dd($user);
             return view('user', ['data' => $user]);
     }
 }
