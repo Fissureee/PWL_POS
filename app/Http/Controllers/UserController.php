@@ -36,7 +36,7 @@ class UserController extends Controller
         //     UserModel::insert($data);
 
         //     $user = UserModel::all();
-            $user = UserModel::find(1);
+            $user = UserModel::where('level_id', 1)->first();
             return view('user', ['data' => $user]);
     }
 }
