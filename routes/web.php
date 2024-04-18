@@ -22,6 +22,10 @@ Route::get('/', function () {
 
 Route::get('/level', [LevelController::class, 'index']);
 Route::get('/kategori', [KategoriController::class, 'index']);
+Route::get('/kategori/create', [KategoriController::class, 'create'])->name('kategori.create');
+Route::get('/kategori/update', [KategoriController::class, 'create'])->name('kategori.update');
+Route::get('/kategori/delete', [KategoriController::class, 'create'])->name('kategori.delete');
+Route::post('/kategori', [KategoriController::class, 'store']);
 // Route::get('/user', [UserController::class, 'index']);
 Route::get('/user', [UserController::class, 'index'])->name('/user');
 Route::get('/user/tambah_simpan', [UserController::class, 'tambah_simpan'])->name('/user/tambah_simpan');

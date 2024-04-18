@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Data Kategori Barang</title>
+        <a href="{{ route('/kategori/create') }}">Add</a>
         <table>
             <tr>
                 <th>ID</th>
