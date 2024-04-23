@@ -328,16 +328,17 @@ return [
             'url' => '/kategori',
             'icon' => 'fas fa-fw fa-user',
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'manage_user'],
         [
-            'text' => 'profile',
-            'url' => 'admin/settings',
+            'text' => 'User',
+            'url' => '/user',
             'icon' => 'fas fa-fw fa-user',
         ],
+        ['header' => 'manage_level'],
         [
-            'text' => 'change_password',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'Level',
+            'url' => '/level',
+            'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'multilevel',
