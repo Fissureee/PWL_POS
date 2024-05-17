@@ -1,20 +1,23 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Data Kategori Barang</title>
-        <a href="{{ route('/kategori/create') }}">Add</a>
-        <table>
+        <title>Data Kategori</title>
+    </head>
+    <body>
+        <h1>Data Kategori</h1>
+        <table border="1" cellpadding="2" cellspacing="0">
             <tr>
                 <th>ID</th>
                 <th>Kode Kategori</th>
                 <th>Nama Kategori</th>
             </tr>
-            @foreach ($data as $d)
-                <tr>
-                    <td>{{ $d->kategori_id }}</td>
-                    <td>{{ $d->kategori_kode }}</td>
-                    <td>{{ $d->kategori_nama }}</td>
-                </tr>
+            @foreach ( $data as $d )
+            <tr>
+                <td>{{ $d->kategori_id }}</td>
+                <td>{{ $d->kategori_kode }}</td>
+                <td>{{ $d->kategori_nama }}</td>
+            </tr>
             @endforeach
         </table>
-    </head>
+    </body>
 </html>
