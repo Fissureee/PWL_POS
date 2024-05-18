@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
-
 use App\Models\UserModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,29 +14,34 @@ class AuthController extends Controller
         $user = Auth::user();
 
         if ($user) {
-            if ($user ->level_id == '1'){
+            // jika user nya memiliki level admin
+            if ($user->level_id == '1') {
                 return redirect()->intended('admin');
             }
-            else if($user->level == '2'){
+            // jika user nya memiliki level manager
+            else if ($user->level == '2') {
                 return redirect()->intended('manager');
             }
         }
         return view('login');
     }
-
-    public function proses_login(Request $request){
-        $request-> validate([
+    public function proses_login(Request $request)
+    {
+        $request->validate([
             'username' => 'required',
             'password' => 'required'
         ]);
 
         $credential = $request->only('username', 'password');
+
         if (Auth::attempt($credential)) {
-            $user = Auth::User();
-            if($user->level_id == '1'){
+
+            $user = Auth::user();
+
+            if ($user->level_id == '1') {
                 return redirect()->intended('admin');
             }
-            else if ($user->level_id == '2'){
+            else if ($user->level_id == '2') {
                 return redirect()->intended('manager');
             }
             return redirect()->intended('/');
@@ -47,36 +50,37 @@ class AuthController extends Controller
             ->withInput()
             ->withErrors(['login_gagal' => 'Pastikan kembali username dan password yang dimasukan sudah benar']);
     }
+
     public function register()
-        {
-            return view('register');
+    {
+        return view('register');
+    }
+    public function proses_register(Request $request)
+    {
+        $validator = Validator::make($request -> all(), [
+            'nama' => 'required',
+            'username' => 'required|unique:m_user',
+            'password' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/register')
+                ->withErrors($validator)
+                ->withInput();
         }
-        public function proses_register(Request $request)
-        {
-            $validator = Validator::make($request-> all(), [
-                'name' => 'required',
-                'username' => 'required|unique:m_user',
-                'password' => 'required'
-            ]);
+        $request['level_id'] = '2';
+        $request['password'] = Hash::make($request->password);
 
-            if ($validator->fails()){
-                return redirect('/register')
-                    ->withErrors($validator)
-                    ->withInput();
-            }
+        UserModel::create($request->all());
 
-            $request['level_id'] = '2';
-            $request['password']= Hash::make($request->password);
+        return redirect()->route('login');
+    }
 
-            UserModel::create($request->all());
+    public function logout(Request $request)
+    {
+        $request->session()->flush();
 
-            return redirect()->route('login');
-        }
-
-        public function logout(Request $request)
-        {
-            $request->session()->flush();
-            Auth::logout();
-            return Redirect('login');
-        }
+        Auth::logout();
+        return redirect('login');
+    }
 }
